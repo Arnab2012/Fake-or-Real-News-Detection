@@ -73,7 +73,8 @@ if col1.button('Predict'):
     else:
         transformed_sms = transform_text(input_sms)
         vector_input = tfidf.transform([transformed_sms])
-        res = model.predict(vector_input)[0]
+        # res = model.predict(vector_input)[0]
+        res=model.decision_function(vector_input)[0]
         st.header(str(res))
         result = 1 / (1 + np.exp(-res))
         # st.header("Real"+"-"+str(round(result[0]*100))+"%")
