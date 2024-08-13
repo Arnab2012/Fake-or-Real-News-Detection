@@ -81,6 +81,10 @@ if col1.button('Predict'):
         # real = round(result[0] * 100)
         real=round(result * 100)
         fake = round(100 - real)
+
+        st.header("Real"+"-"+str(round(result[0]*100))+"%")
+        st.header("Fake"+"-"+str(round(100-result[0]*100))+"%")
+
         prediction(real, fake)
 
     # Place button in the second column
