@@ -75,7 +75,6 @@ if col1.button('Predict'):
         vector_input = tfidf.transform([transformed_sms])
         # res = model.predict(vector_input)[0]
         res=model.decision_function(vector_input)[0]
-        # st.header(str(res))
         result = 1 / (1 + np.exp(-res))
         # st.header("Real"+"-"+str(round(result[0]*100))+"%")
         # st.header("Fake"+"-"+str(round(100-result[0]*100))+"%")
@@ -84,8 +83,7 @@ if col1.button('Predict'):
         real=round(result * 100)
         fake = round(100 - real)
 
-        # st.header("Real"+"-"+str(round(result*100))+"%")
-        # st.header("Fake"+"-"+str(round(100-result*100))+"%")
+        
 
         prediction(real, fake)
 
